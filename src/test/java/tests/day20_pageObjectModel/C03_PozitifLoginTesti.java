@@ -34,6 +34,7 @@ public class C03_PozitifLoginTesti {
 
         // 7- logout olun
         testotomasyonuPage.logoutButonu.click();
+        ReusableMethods.bekle(2);
 
         // 8- sayfayi kapatin
         Driver.quitDriver();
