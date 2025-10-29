@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+3- K23 package'indaki tum class'lari calistirin
+-->
+
+<suite name="package Suite">
+    <test name="istenen packagelari calistirma">
+
+        <packages>
+            <package name="tests.K26_htmlReports"></package>
+
+        </packages>
+
+    </test>
+
+</suite>

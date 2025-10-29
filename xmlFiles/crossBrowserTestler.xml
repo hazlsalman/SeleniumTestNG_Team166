@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+    K27 crossBrowserTestler package'indaki
+    3 class'i sirali olarak
+    hem chrome hem de edge ile calistirin
+-->
+
+<suite name="CrossBrowser Testler">
+
+    <test name="Chrome ile calisacak class'lar">
+        <parameter name="kullanilacakBrowser" value="chrome"></parameter>
+
+        <packages>
+            <package name="tests.K27_CrossBrowserTestler"></package>
+        </packages>
+
+    </test>
+
+    <test name="Edge ile calisacak class'lar">
+        <parameter name="kullanilacakBrowser" value="edge"></parameter>
+
+        <packages>
+            <package name="tests.K27_CrossBrowserTestler"></package>
+        </packages>
+
+    </test>
+
+</suite>

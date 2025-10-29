@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+ 4- Regression testi icin framework'deki tum testleri
+           class seviyesinde paylasim ile paralel calistirin
+
+-->
+
+
+<suite name="regression suite" thread-count="2" parallel="classes">
+    <test name="regression test">
+
+        <packages>
+            <package name="tests.*"></package>
+        </packages>
+
+    </test>
+</suite>

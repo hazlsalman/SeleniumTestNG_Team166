@@ -8,41 +8,47 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
+
 public class Driver {
+
+    private Driver(){
+        // Driver constructor'ini gorunur yapip
+        // access modifier olarak private belirlendigi icin
+        // bu class'dan kimse obje olusturamaz
+        // (Singleton Pattern)
+
+    }
 
     public static WebDriver driver;
 
+    public static WebDriver getDriver(){
 
-    public static WebDriver  getDriver(){
+        String kullanilacakBrowser=ConfigReader.getProperty("browser");
 
-        String kullanilacakBrowser = ConfigReader.getProperty("browser");
-        // configuration properties dosyasindan browser tercihini aldik
-
-        // isterseniz bir emniyet sigortası ekleyebiliriz
-
-        if (kullanilacakBrowser == null){
-            kullanilacakBrowser = "chrome";
-        }
-
-        if (driver == null){
+        if (driver==null){
 
             switch (kullanilacakBrowser){
+                case "firefox":
+                    driver=new FirefoxDriver();
+                    break;
 
-                case "edge" :
-                    driver = new EdgeDriver();
+                case "edge":
+                    driver=new EdgeDriver();
                     break;
-                case "firefox" :
-                    driver = new FirefoxDriver();
+
+                case "safari":
+                    driver=new SafariDriver();
                     break;
-                case "safari" :
-                    driver = new SafariDriver();
-                    break;
+
                 default:
-                    driver = new ChromeDriver();
+                    driver=new ChromeDriver();
+
             }
 
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
             driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         }
 
         return driver;
@@ -50,6 +56,8 @@ public class Driver {
 
     public static void quitDriver(){
         driver.quit();
-        driver = null;
+        driver=null;
     }
+
+
 }
